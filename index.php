@@ -14,7 +14,7 @@
         <div class='container-button'><br>
             <a class='create btn btn-info' href='creat.php'>Créer </a>
             <a class='create btn btn-info' href='list_clients.php'>Clients </a>
-            <a class='create btn btn-info' href='./livreur/list_livreurs.php'>Livreurs </a>
+            <a class='create btn btn-info' href='list_livreurs.php'>Livreurs </a>
         </div>
 
 </form>
