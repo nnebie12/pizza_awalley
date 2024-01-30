@@ -3,14 +3,69 @@
     <title>Exo récup pizza mysql</title>
 </head>
 <body>
+<form class="navbar">
+    <div class="search-container">
+        <input type="text" class="search-button" placeholder="Search" name="search">
+        <button type="submit" class="create btn btn-info">Recherche</button>
+    </div>
+    <div class='container-button'><br>
+        <a class='create btn btn-info' href='list_livreurs.php'>Livreurs </a>
+        <a class='create btn btn-info' href='index.php'>Accueil </a>
+    </div>
+
+</form>
+
 
 <h1>AWALLEY</h1>
 <style>
     body {
         font-family: Arial, sans-serif;
         background-color: #333333;
-        margin: 0;
         padding: 0;
+        color: #fff;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .search-button {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .container-button {
+        display: flex;
+        margin-left: auto;
+    }
+
+    .create {
+        text-decoration: none;
+        color: #fff;
+        padding: 10px;
+        margin: 0 10px;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        transition: background-color 0.3s ease;
+    }
+
+    .create:hover {
+        background-color: #31b0d5;
+    }
+
+    h1 {
+        text-align: center;
+        color: #fff;
     }
 
     .client-container {
@@ -25,7 +80,7 @@
         border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         margin: 10px;
-        padding: 15px;
+        padding: 35px;
         width: 250px;
         background-color: #fff;
     }
@@ -42,11 +97,6 @@
         font-size: 15px;
     }
 
-    h1 {
-        text-align: center;
-        color: #fff ;
-    }
-
     p {
         margin: 10px 0;
         color: #555;
@@ -55,6 +105,27 @@
     strong {
         color: #000;
     }
+
+    .livreur-card-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 8px;
+    }
+
+    .livreur-card-buttons a {
+        text-decoration: none;
+        color: #fff;
+        padding: 3px 5px;
+        margin: 5px;
+        border-radius: 5px;
+        background-color: #4CAF50;
+        transition: background-color 0.3s ease;
+    }
+
+    .livreur-card-buttons a:hover {
+        background-color: #31b0d5;
+    }
+
 </style>
 
 
@@ -99,37 +170,14 @@ while ($row = $result->fetch_assoc()) {
             echo '<img src="images_clients/' . $row['NOMCLIE'] . '.jpg" alt="' . $row['NOMCLIE'] . '">';
             echo '<p><strong>Numéro du client:</strong> ' . $row['NROCLIE'] . '</p>';
             echo '<p><strong>Titre du client:</strong> ' . $row['TITRECLIE'] . '</p>';
+            echo '<div class="livreur-card-buttons">';
+            echo("<a class=' btn-info'href='commander.php' >Commander</a> ");
+            echo("<a class='btn-info' href='udapte.php'>Modifier </a>");
+            echo("<a class='btn-info' href='delete.php'>Supprimer </a>");
+            echo '</div>';
             echo '</div>';
         }
         echo '</div>';
-  // affichage de la variable $row
-   /* echo "<pre>";
-    print_r($row);
-    echo "</pre>";
-    echo "<pre>";
-    var_dump($row);
-    echo "</pre>";*/
-
-    /*echo"<br>***************************************<br>";
-
-    echo "client numero :".$row['NROCLIE'] . "<br>";
-    echo "nom du client :".$row['NOMCLIE'] . "<br>";
-    echo "prenom du client :".$row['PRENOMCLIE'] ."<br>";
-    echo "adresse du client :".$row['ADRESSECLIE'] ."<br>";
-    echo "ville du client :".$row['VILLECLIE'] ."<br>";
-    echo "code postale du client :".$row['CODEPOSTALECLIE'] ."<br>";
-    echo "titr du client :".$row['TITRECLIE'] ."<br>";
-
-    echo("<img src='images_client/".$row['NOMCLIE'].".jpg'>");
-    echo "nom du client:".$row['NOMCLIE'] ."jpg <br>";
-
-
-    echo"<br>***************************************<br>";
-
-
-}*/
-
-
 
 ?>
 </body>

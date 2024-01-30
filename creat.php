@@ -6,12 +6,78 @@
     <title>Création d'entité</title>
 
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
 
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        button {
+            display: none;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        span {
+            float: right;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            cursor: pointer;
+        }
 
         .entity-section {
             display: none;
         }
-
 
         .active-section {
             display: block;
@@ -19,6 +85,14 @@
     </style>
 
     <script>
+        function openModal() {
+            document.getElementById('entityModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('entityModal').style.display = 'none';
+        }
+
         function updateForm() {
             const entityType = document.getElementById('entityType').value;
 
@@ -28,18 +102,20 @@
                 entitySections[i].classList.remove('active-section');
             }
 
-            // Afficher la section correspondant au type d'entité sélectionné
+            // Affichage de la section correspondant au type d'entité sélectionné
             const activeSection = document.getElementById(entityType + 'Section');
             activeSection.classList.add('active-section');
         }
+
+        // Appelle de la fonction openModal automatiquement lors du chargement de la page
+        window.onload = function () {
+            openModal();
+        };
     </script>
 </head>
 <body>
 
 <h1>Bienvenue sur le site</h1>
-
-<!-- Bouton pour ouvrir la modale -->
-<button onclick="openModal()">Créer une entité</button>
 
 <!-- Modal pour la création d'entité -->
 <div id="entityModal" class="modal">
@@ -69,7 +145,6 @@
                 <label for="name">Ingrédients:</label>
                 <input type="text" name="NOMINGR" required><br>
 
-
                 <!-- Sélection d'ingrédients pour les pizzas -->
                 <label for="ingredients">Ingrédients (au plus 2) :</label>
                 <select name="ingredients[]" multiple size="2">
@@ -95,7 +170,6 @@
                     $conn_mysqli->close();
                     ?>
                 </select>
-
             </div>
 
             <!-- Section pour la création de livreurs -->
@@ -112,7 +186,6 @@
 
                 <label for="hireDate">Date d'embauche:</label>
                 <input type="text" name="hireDate" required><br>
-
             </div>
 
             <!-- Section pour la création de clients -->
@@ -129,7 +202,6 @@
 
                 <label for="clientPhoneNumber">Numéro de téléphone du client:</label>
                 <input type="text" name="clientPhoneNumber" required><br>
-
             </div>
 
             <!-- bouton de soumission -->
@@ -139,17 +211,15 @@
 </div>
 
 <?php
-// Exemple de traitement PHP après la soumission du formulaire
+// traitement PHP après la soumission du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupération des valeurs du formulaire
     $nomPizza = $_POST['nomPizza'];
     $prixPizza = $_POST['prixPizza'];
     $ingredients = isset($_POST['ingredients']) ? $_POST['ingredients'] : array();
 
-    // Effectuez le traitement nécessaire avec les données récupérées
-    // ...
 
-    // Exemple d'affichage des données pour le débogage
+    // affichage des données pour le débogage
     echo "<h3>Résultats du traitement PHP :</h3>";
     echo "Nom de la pizza: " . $nomPizza . "<br>";
     echo "Prix de la pizza: " . $prixPizza . "<br>";
@@ -157,8 +227,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 </body>
 </html>
-
-
