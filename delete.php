@@ -42,7 +42,7 @@
     <div class="modal-content">
         <span onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
         <h1>Supprimer Entité</h1>
-        <?php echo $message; // Affichez le message ici ?>
+        <?php echo $message; // Affichage du message ici ?>
 
         <!-- Formulaire de suppression -->
         <form action="" method="post">

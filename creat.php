@@ -79,9 +79,6 @@
             display: none;
         }
 
-        .active-section {
-            display: block;
-        }
     </style>
 
     <script>

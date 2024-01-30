@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             $prenom_client = $_POST['PRENOMCLIE'];
 
             $sql_update_client = "UPDATE client SET NOMCLIE = '$name_client', PRENOMCLIE = '$prenom_client' WHERE NROCLIE = $client_id";
-            // Ajoutez le code pour la modification d'un client ici
+            // Ajout du code pour la modification d'un client ici
             break;
 
         case 'update_livreur':
@@ -44,13 +44,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
             $datedembauche_livreur = $_POST['DATEEMBAUCHELIVR'];
 
             $sql_update_livreur = "UPDATE livreur SET NOMLIVR = '$name_livreur', PRENOMLIVR = '$prenom_livreur', DATEEMBAUCHELIVR = $datedembauche_livreur, WHERE NROLIVR = $livreur_id";
-            // Ajoutez le code pour la modification d'un livreur ici
+            // Ajout du code pour la modification d'un livreur ici
             break;
 
     }
 }
 
-// Récupérez l'ID et le type d'entité depuis l'URL
+// Récupération de l'ID et le type d'entité depuis l'URL
 if (isset($_GET['id']) && isset($_GET['type'])) {
     $entity_id = $_GET['id'];
     $entity_type = $_GET['type'];
@@ -67,17 +67,17 @@ if (isset($_GET['id']) && isset($_GET['type'])) {
             $table_name = 'client';
             $client_id = 'NROCLIE';
             $name_client = 'NOMCLIE';
-            $prenom_client = 'PRENOMCLIE'; // Juste pour l'exemple, ajustez en fonction de votre structure de table
+            $prenom_client = 'PRENOMCLIE';
             break;
         case 'livreur':
             $table_name = 'livreur';
             $livreur_id = 'NROLIVR';
             $name_livreur = 'NOMLIVR';
             $prenom_livreur = 'PRENOMLIVR';
-            $datedembauche_livreur = ['DATEEMBAUCHELIVR'];// Juste pour l'exemple, ajustez en fonction de votre structure de table
+            $datedembauche_livreur = ['DATEEMBAUCHELIVR'];
             break;
         default:
-            // Gestion d'une valeur de type d'entité incorrecte
+
             break;
     }
 
@@ -135,19 +135,6 @@ $conn_mysqli->close();
             color: #fff;
         }
 
-        .close-btn {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close-btn:hover,
-        .close-btn:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
 
         .modal-content h1 {
             text-align: center;
@@ -193,7 +180,7 @@ $conn_mysqli->close();
             <input type="hidden" name="action" value="update_entity">
             <input type="hidden" name="entity_id" value="<?php echo $row['ID']; ?>">
 
-            <!-- Ajoutez un champ caché pour stocker le type d'entité -->
+            <!-- Ajout d'un champ caché pour stocker le type d'entité -->
             <input type="hidden" name="entity_type" value="<?php echo $entity_type; ?>">
 
             <label for="entity_name">Nom de l'Entité:</label>
