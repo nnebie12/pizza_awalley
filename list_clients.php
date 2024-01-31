@@ -162,12 +162,11 @@ echo '<div class="client-container">';
 while ($row = $result->fetch_assoc()) {
 
     echo '<div class="client-card">';
-            echo '<h2>' . $row['NOMCLIE'] . '</h2>';
-            echo '<h2>' . $row['PRENOMCLIE'] . '</h2>';
+            echo '<h2>' . $row['NOMCLIE'] . $row['PRENOMCLIE'] . '</h2>';
             echo '<h2>' . $row['ADRESSECLIE'] . '</h2>';
             echo '<h2>' . $row['VILLECLIE'] . '</h2>';
             echo '<h2>' . $row['CODEPOSTALECLIE'] . '</h2>';
-            echo '<img src="images_clients/' . $row['NOMCLIE'] . '.jpg" alt="' . $row['NOMCLIE'] . '">';
+            echo '<img src="images_clients/' . $row['NROCLIE'] . '.jpg" alt="' . $row['NROCLIE'] . '">';
             echo '<p><strong>Numéro du client:</strong> ' . $row['NROCLIE'] . '</p>';
             echo '<p><strong>Titre du client:</strong> ' . $row['TITRECLIE'] . '</p>';
             echo '<div class="livreur-card-buttons">';
