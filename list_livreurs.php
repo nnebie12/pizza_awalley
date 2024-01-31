@@ -179,7 +179,6 @@ while ($row = $result->fetch_assoc()) {
     echo '<p><strong>Numéro du Livreur:</strong> ' . $row['NROLIVR'] . '</p>';
     echo '<p><strong>Date d\'embauche:</strong> ' . $row['DATEEMBAUCHELIVR'] . '</p>';
     echo '<div class="livreur-card-buttons">';
-    echo("<a class=' btn-info'href='commander.php' >Commander</a> ");
     echo("<a class='btn-info' href='udapte.php'>Modifier </a>");
     echo("<a class='btn-info' href='delete.php'>Supprimer </a>");
     echo '</div>';
